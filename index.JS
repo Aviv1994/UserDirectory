@@ -1,14 +1,13 @@
 const form = document.querySelector('form#userForm')
+
 const handleSubmit = function(ev) {
     ev.preventDefault
     const form = ev.target
     const userName = form.userName.value
-const button = document.querySelector('button')
-
-function changeText(){
-let userInput = document.querySelector('.W');
-userInput.textContent = document.getElementById("FS").value
-
-} 
-button.addEventListener('click', changeText)
+const users = document.querySelector('#users')
+users.innerHTML += '<p>' + userName + '<p>'
+form.userName.value =''
 }
+
+
+form.addEventListener('submit' , handleSubmit)
