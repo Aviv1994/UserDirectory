@@ -1,14 +1,5 @@
 const form = document.querySelector('form#userForm')
 
-function renderColor(color) {
-  const colorDiv = document.createElement('div')
-  colorDiv.style.backgroundColor = color
-  colorDiv.style.width = '6rem'
-  colorDiv.style.height = '3rem'
-
-  return colorDiv
-}
-
 function renderListItem(label, value) {
   const item = document.createElement('li')
 
@@ -56,3 +47,10 @@ const handleSubmit = function(ev) {
 }
 
 form.addEventListener('submit', handleSubmit)
+
+const clearAll = document.querySelector('#clearall')
+clearAll.addEventListener('click', deleteAll)
+
+function deleteAll(){
+    document.querySelector('#users').remove()
+}
