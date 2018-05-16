@@ -1,68 +1,58 @@
-//const form = document.querySelector('form#userForm')
-
 const form = document.querySelector('form#userForm')
 
-// const handleSubmit = function(ev) {
-//     ev.preventDefault()
-   
-function renderColor() {
-const colorDiv = document.createElement('div')
-   colorDiv.style.backgroundColor = favoriteColor
-   colorDiv.style.width = '6rem'
-   colorDiv.style.height = '3rem'
-   return colorDiv
-} 
-function renderListItem(){
+function renderColor(color) {
+  const colorDiv = document.createElement('div')
+  colorDiv.style.backgroundColor = color
+  colorDiv.style.width = '6rem'
+  colorDiv.style.height = '3rem'
 
+  return colorDiv
 }
-  function renderList(){
-      
+
+function renderListItem(label, value) {
+  const item = document.createElement('li')
+
+  const term = document.createElement('dt')
+  term.textContent = label
+
+  const description = document.createElement('dd')
+
+  try {
+    description.appendChild(value)
+  } catch(e) {
+    description.textContent += value
   }
-function handleSubmit(ev) {
-    
-    ev.preventDefault()
-    const form = ev.target
-    const userName = form.userName.value
-    const users = document.querySelector('#users')
-   
-   
-   
-    //form.reset()
-   // form.userName.focus()
-    const age = form.age.value
-    const favoriteColor = form.favoriteColor.value
-//form.addEventListener('submit', handleSubmit)
-  
-   
-   const list = document.createElement('ul')
-   
-  
 
-   
-   const nameItem = document.createElement('li')
-   nameItem.textContent = `name: ${userName}`
-   
-   const ageItem = document.createElement('li')
-   ageItem.textContent = `Age: ${age}`
-   const colorItem = document.createElement('li')
-   colorItem.textContent = 'Favorite Color: '
-   const colorDiv = document.createElement('div')
-   colorDiv.style.backgroundColor = favoriteColor
-   colorDiv.style.width = '6rem'
-   colorDiv.style.height = '3rem'
-   colorItem.appendChild(colorDiv)
-   
-
-    list.appendChild(nameItem)
-    list.appendChild(ageItem)
-    list.appendChild(colorItem)
-
-    users.appendChild(list)
-    
-   
-    //users.innerHTML += '<p>' + userName + ' , ' + age + '<p>'
-    form.reset()
-    form.userName.focus()
+  item.appendChild(term)
+  item.appendChild(description)
+  return item
 }
 
-form.addEventListener('submit' , handleSubmit)
+function renderList(data) {
+  const list = document.createElement('ul')
+  Object.keys(data).forEach(label => {
+    const item = renderListItem(label, data[label])
+    list.appendChild(item)
+  })
+  return list
+}
+
+const handleSubmit = function(ev) {
+  ev.preventDefault()
+  const form = ev.target
+  const user = {
+    'Movie Type': form.MovieType.value,
+    'Movie Name': form.MovieName.value,
+    'Year':form.Year.value,
+    'Movie Rating': form.MovieRating.value,
+  }
+
+  const list = renderList(user)
+  const users = document.querySelector('#users')
+  users.appendChild(list)
+
+  form.reset()
+  form.MovieType.focus()
+}
+
+form.addEventListener('submit', handleSubmit)

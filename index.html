@@ -1,37 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel= "stylesheet" href= "index.css">
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
- 
   
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <h1 class= "A">User Directory</h1>
-    <h1>Text Input  </h1>
-    
+  <h1>Welcome to my Website ;)</h1>
+  <h1>Favorite Channing Tatum Movies</h1>
+  <main>
     <form id="userForm">
+      <p>
+            <label for="MovieType" >Movie Type:</label> 
+        <select name="MovieType">
+                <option value="N/A">None</option>
+            <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+       
+      </select></p>
         <p>
-        <label for="userName">Username:</label>
-        <input type="text" name="userName" autofocus>
-    </p>
-        <p>
-        <label for="age">Age</label>        
-        <input type="number" name="age">
-</p>
-<p>
-<label for="favoriteColor">Favorite Color</label>
-<input type= "color" name= "favoriteColor">
-</p>
-<button type="submit">Go</button>
-<button type="reset">Clear</button>
-</form>
-   
-<div id="users"></div>
+        <label for="MovieName">Movie Name:</label>
+        <input type="text" name="MovieName" autofocus>
+      </p>
+      <p>
+        <label for="Year">Year:</label>
+        <input type="number" name="Year">
+      </p>
+      <p>
+        <label for="MovieRating">Movie Rating:</label>
+        
+        <select name="MovieRating">
+                <option  value="N/A">None</option>    
+                <option  value="G">G</option>
+                <option  value="PG">PG</option>
+                <option  value="PG-13">PG-13</option>
+                <option  value="R">R</option>
+                <option  value="NC-17">NC-17</option>
+               
+              </select></p>
+      </p>
 
-    <script src="index.js"></script>
+      <button type="submit">Go</button>
+      <button type="reset">Clear</button>
+      <button type="Clear All">Clear All</button>
+    </form>
+
+    <div id="users"></div>
+  </main>
+
+  <script src="index.js"></script>
 </body>
 </html>

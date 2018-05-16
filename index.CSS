@@ -1,6 +1,30 @@
-/* body{
-        font-family: sans-serief;
-} */ 
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
 body {
-        text-align: center;
+  font-family: Dosis, sans-serif;
+  background-color: white;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+}
+
+#userForm {
+  background-color: #eeeeee;
+  border: 1px solid #e3e3e3;
+  padding: 1rem;
+}
+
+dl {
+  padding: 1rem;
+}
+
+dl li {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+dl:nth-of-type(even) {
+  background-color: WhiteSmoke;
 }
